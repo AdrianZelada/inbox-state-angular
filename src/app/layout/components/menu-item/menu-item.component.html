@@ -1,0 +1,28 @@
+<li class="label _menu" *ngIf="item.type === 'title'">{{item.label}}</li>
+
+
+<li class="_menu" *ngIf="item.type === 'link'" [ngClass]="{'menu-hidden':state | async}">
+  <a class="_menu" href="app-event-calender.html">
+    <i class="_menu" [ngClass]="item.icon"></i>
+    {{item.label}}
+  </a>
+</li>
+
+
+<li class="active _menu" *ngIf="item.type === 'group'" [ngClass]="{'menu-hidden':state | async, 'open': item.open}" (click)="open(item)">
+  <a class="sidebar-sub-toggle _menu">
+    <i class="_menu" [ngClass]="item.icon"></i>
+    {{item.label}}
+    <span *ngIf="item.badge" class=" _menu badge badge-primary" [hidden]="isOpen | async">{{item.badge}}</span>
+    <span class="_menu sidebar-collapse-icon ti-angle-down"  *ngIf="!(isOpen | async)"></span>
+  </a>
+
+  <ul class="_menu">
+    <ng-container *ngFor="let menu of item.children">
+      <z-menu-item [item]="menu"></z-menu-item>
+    </ng-container>
+  </ul>
+</li>
+
+<!--<ng-container></ng-container>-->
+

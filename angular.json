@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "z",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
@@ -28,7 +28,15 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/lib/weather-icons.css",
+              "src/assets/css/lib/font-awesome.min.css",
+              "src/assets/css/lib/themify-icons.css",
+              "src/assets/css/lib/menubar/sidebar.css",
+              "src/assets/css/lib/bootstrap.min.css",
+              "src/assets/css/lib/helper.css",
+              "src/assets/css/style.css"
+
             ],
             "scripts": []
           },

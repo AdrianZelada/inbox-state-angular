@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {LayoutComponent} from './layout/layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './mail/mail.module#MailModule'
+    component: LayoutComponent
   }
 ];
 
