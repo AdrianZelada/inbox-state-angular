@@ -1,3 +1,9 @@
-<z-sidebar></z-sidebar>
+<z-sidebar [menus]="menus"></z-sidebar>
 <z-navbar></z-navbar>
-
+<div class="content-wrap small-content" [ngClass]="{'large-content': (stateSide | async)}">
+  <div class="main">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

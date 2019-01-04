@@ -2,7 +2,7 @@
 
 
 <li class="_menu" *ngIf="item.type === 'link'" [ngClass]="{'menu-hidden':state | async}">
-  <a class="_menu" href="app-event-calender.html">
+  <a class="_menu" [routerLink]="[item.route]">
     <i class="_menu" [ngClass]="item.icon"></i>
     {{item.label}}
   </a>

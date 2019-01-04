@@ -8,6 +8,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class SidebarService {
 
   private minWidthWindow: any = 850;
+  private activateHover: boolean = false;
   private stateSideOpen: BehaviorSubject<any> = new BehaviorSubject<any>(false);
   public stateSideOpen$: Observable<any> = this.stateSideOpen.asObservable();
   constructor() {
@@ -28,21 +29,25 @@ export class SidebarService {
   }
 
   overSidebar(target: any) {
-    this.stateSideOpen.next(false);
-    const body: Element = document.getElementsByTagName('body')[0];
-    body.classList.remove('sidebar-hide');
+    if (this.activateHover) {
+      this.stateSideOpen.next(false);
+      const body: Element = document.getElementsByTagName('body')[0];
+      body.classList.remove('sidebar-hide');
+    }
   }
 
   outSidebar(target: Element) {
-    let sw: boolean = false;
-    const keys = ['nano-content', '_menu'];
-    keys.forEach((key) => {
-      sw = sw || target.classList.contains(key);
-    });
-    if (!sw) {
-      this.stateSideOpen.next(true);
-      const body: Element = document.getElementsByTagName('body')[0];
-      body.classList.add('sidebar-hide');
+    if (this.activateHover) {
+      let sw: boolean = false;
+      const keys = ['nano-content', '_menu'];
+      keys.forEach((key) => {
+        sw = sw || target.classList.contains(key);
+      });
+      if (!sw) {
+        this.stateSideOpen.next(true);
+        const body: Element = document.getElementsByTagName('body')[0];
+        body.classList.add('sidebar-hide');
+      }
     }
   }
 }

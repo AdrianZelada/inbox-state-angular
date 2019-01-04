@@ -1,0 +1,9 @@
+.large-content{
+  margin-left: 60px !important;
+}
+
+.small-content{
+  margin-left: 250px;
+  -webkit-transition: margin-left 300ms ease-in-out;
+  transition: margin-left 300ms ease-in-out
+}

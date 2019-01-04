@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { SidebarService} from '../../services/sidebar.service';
 import { Observable} from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Observable} from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
   public stateSidebar: Observable<any> = this.sidebarService.stateSideOpen$;
+  @Input() menus: Array<any>;
 
   constructor(private sidebarService: SidebarService) { }
 
